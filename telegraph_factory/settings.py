@@ -186,6 +186,7 @@ CMS_LANGUAGES = {
 
 CMS_TEMPLATES = (
     ## Customize this
+    ('index.html', 'Index page'),
     ('page.html', 'Page'),
     ('feature.html', 'Page with Feature')
 )

@@ -1,43 +1,4 @@
 {% load cms_tags staticfiles sekizai_tags menu_tags %}
-
-
-{#<!doctype html>#}
-{#<html>#}
-{#    <head>#}
-{#        <meta charset="utf-8">#}
-{#        <title>{% block title %}This is my new project home page{% endblock title %}</title>#}
-{#        <meta name="viewport" content="width=device-width,initial-scale=1">#}
-{#        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.4/css/bootstrap.min.css">#}
-{#        {% render_block "css" %}#}
-{#    </head>#}
-{#    <body>#}
-{#        {% cms_toolbar %}#}
-{#        <div class="container">#}
-{#            <div class="navbar navbar-default" role="navigation">#}
-{#                <div class="navbar-header">#}
-{#                    <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">#}
-{#                        <span class="sr-only">Toggle navigation</span>#}
-{#                        <span class="icon-bar"></span>#}
-{#                        <span class="icon-bar"></span>#}
-{#                        <span class="icon-bar"></span>#}
-{#                    </button>#}
-{#                    <a class="navbar-brand" href="#">Project name</a>#}
-{#                </div>#}
-{#                <div class="navbar-collapse collapse">#}
-{#                    <ul class="nav navbar-nav">#}
-{#                        {% show_menu 0 1 100 100 "menu.html" %}#}
-{#                    </ul>#}
-{#                </div>#}
-{#            </div>#}
-{#            {% block content %}{% endblock content %}#}
-{#        </div>#}
-{#        <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>#}
-{#        <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.4/js/bootstrap.min.js"></script>#}
-{#        {% render_block "js" %}#}
-{#    </body>#}
-{#</html>#}
-
-
 <!doctype html>
 <!--[if IE 8 ]><html class="ie ie8" lang="en"> <![endif]-->
 <!--[if (gte IE 9)|!(IE)]><html lang="en" class="no-js"> <![endif]-->
@@ -241,17 +202,17 @@
 
 
           <!-- Start Subscribe & Social Links Widget -->
-          <div class="col-md-3 col-xs-12">
+          <div class="col-md-4 col-xs-12">
             <div class="footer-widget mail-subscribe-widget">
-              <h4>Get in touch<span class="head-line"></span></h4>
-              <p>Join our mailing list to stay up to date and get notices about our new releases!</p>
+              <h4>Новости<span class="head-line"></span></h4>
+              <p>Подпишитесь на нашу рассылку и будьте в курсе всех новостей!</p>
               <form class="subscribe">
                 <input type="text" placeholder="mail@example.com">
-                <input type="submit" class="btn-system" value="Send">
+                <input type="submit" class="btn-system" value="Отправить">
               </form>
             </div>
             <div class="footer-widget social-widget">
-              <h4>Follow Us<span class="head-line"></span></h4>
+              <h4>Мы в соцсетях<span class="head-line"></span></h4>
               <ul class="social-icons">
                   <li>
                   <a class="facebook" title="Facebook" href="#"><i class="fa fa-facebook"></i></a>
@@ -284,7 +245,7 @@
           <!-- End Subscribe & Social Links Widget -->
 
 
-          <div class="col-md-6 col-xs-12">
+          <div class="col-md-5 col-xs-12">
             <div class="footer-widget flickr-widget">
               <h4>Карта<span class="head-line"></span></h4>
                 <script type="text/javascript" charset="utf-8" src="https://api-maps.yandex.ru/services/constructor/1.0/js/?sid=D4j59BUBfnCojzsvrvtl0WeRv3SSQ4F4&width=100%&height=320&lang=ru_RU&sourceType=constructor"></script>
@@ -296,11 +257,11 @@
           <div class="col-md-3 col-xs-12">
             <div class="footer-widget contact-widget">
               <h4><img src="{{ STATIC_URL }}images/footer-margo.png" class="img-responsive" alt="Footer Logo" /></h4>
-              <p>At vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis praesentium voluptatum deleniti atque corrupti quos dolores et quas molestias excepturi sint occaecati cupiditate non provident</p>
+              <p>Веб-студия</p>
               <ul>
-                <li><span>Phone Number:</span> +01 234 567 890</li>
-                <li><span>Email:</span> company@company.com</li>
-                <li><span>Website:</span> www.yourdomain.com</li>
+                <li><span>Телефон:</span> {% placeholder "phone" %}</li>
+                <li><span>Email:</span> {% placeholder "email" %}</li>
+                <li><span>Адрес:</span> {% placeholder "address" %}</li>
               </ul>
             </div>
           </div>
@@ -322,7 +283,7 @@
               <ul class="footer-nav">
                 <li><a href="#">Sitemap</a>
                 </li>
-                <li><a href="#">Contact</a>
+                <li><a href="#">Контакты</a>
                 </li>
               </ul>
             </div>

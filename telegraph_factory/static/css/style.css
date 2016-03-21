@@ -513,6 +513,18 @@ ul.social-list li a.google:hover {
 	background-color: #F16261;
 }
 
+ul.social-list li a.vk:hover {
+	background-color: #507CBE;
+}
+
+ul.social-list li a.odnoklassniki:hover {
+	background-color: #F6881F;
+}
+
+ul.social-list li a.github:hover i {
+	background-color: #581845;
+}
+
 ul.social-list li a.dribbble:hover {
 	background-color: #E46387;
 }
@@ -4176,6 +4188,18 @@ footer a:hover {
 
 .social-widget ul.social-icons li a.google:hover i {
 	background-color: #F16261;
+}
+
+.social-widget ul.social-icons li a.vk:hover i {
+	background-color: #507CBE;
+}
+
+.social-widget ul.social-icons li a.odnoklassniki:hover i {
+	background-color: #F6881F;
+}
+
+.social-widget ul.social-icons li a.github:hover i {
+	background-color: #581845;
 }
 
 .social-widget ul.social-icons li a.dribbble:hover i {

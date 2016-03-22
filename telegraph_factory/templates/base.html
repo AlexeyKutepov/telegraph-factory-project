@@ -45,8 +45,8 @@
 {#  <link rel="stylesheet" type="text/css" href="{{ STATIC_URL }}css/colors/green.css" title="green" media="screen" />#}
 {#  <link rel="stylesheet" type="text/css" href="{{ STATIC_URL }}css/colors/blue.css" title="blue" media="screen" />#}
 {#  <link rel="stylesheet" type="text/css" href="{{ STATIC_URL }}css/colors/beige.css" title="beige" media="screen" />#}
-  <link rel="stylesheet" type="text/css" href="{{ STATIC_URL }}css/colors/cyan.css" title="cyan" media="screen" />
-{#  <link rel="stylesheet" type="text/css" href="{{ STATIC_URL }}css/colors/orange.css" title="orange" media="screen" />#}
+{#  <link rel="stylesheet" type="text/css" href="{{ STATIC_URL }}css/colors/cyan.css" title="cyan" media="screen" />#}
+  <link rel="stylesheet" type="text/css" href="{{ STATIC_URL }}css/colors/orange.css" title="orange" media="screen" />
 {#  <link rel="stylesheet" type="text/css" href="{{ STATIC_URL }}css/colors/peach.css" title="peach" media="screen" />#}
 {#  <link rel="stylesheet" type="text/css" href="{{ STATIC_URL }}css/colors/pink.css" title="pink" media="screen" />#}
 {#  <link rel="stylesheet" type="text/css" href="{{ STATIC_URL }}css/colors/purple.css" title="purple" media="screen" />#}
@@ -158,7 +158,7 @@
             </button>
             <!-- End Toggle Nav Link For Mobiles -->
             <a class="navbar-brand" href="index.html">
-              <img alt="" src="{{ STATIC_URL }}images/margo.png">
+                {% placeholder "logo" %}
             </a>
           </div>
           <div class="navbar-collapse collapse">
@@ -256,7 +256,8 @@
           <!-- Start Contact Widget -->
           <div class="col-md-3 col-xs-12">
             <div class="footer-widget contact-widget">
-              <h4><img src="{{ STATIC_URL }}images/footer-margo.png" class="img-responsive" alt="Footer Logo" /></h4>
+              {% placeholder "logo_footer" %}
+              <p></p>
               <p>Веб-студия</p>
               <ul>
                 <li><span>Телефон:</span> {% placeholder "phone" %}</li>

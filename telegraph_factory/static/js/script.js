@@ -609,12 +609,12 @@ window.onload = function(e) {
 //  var cookie = readCookie("style");
 //  var title = cookie ? cookie : getPreferredStyleSheet();
 //  setActiveStyleSheet(title);
-  setActiveStyleSheet("cyan");
+  setActiveStyleSheet("orange");
 };
 
 window.onunload = function(e) {
 //  var title = getActiveStyleSheet();
-  var title = "cyan";
+  var title = "orange";
   createCookie("style", title, 365);
 };
 

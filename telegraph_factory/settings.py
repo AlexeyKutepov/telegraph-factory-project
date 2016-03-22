@@ -77,6 +77,8 @@ STATICFILES_DIRS = (
 )
 SITE_ID = 1
 
+ALDRYN_BOILERPLATE_NAME='bootstrap3'
+
 
 TEMPLATES = [
     {
@@ -150,7 +152,18 @@ INSTALLED_APPS = (
     'djangocms_inherit',
     'djangocms_link',
     'reversion',
-    'telegraph_factory'
+    'telegraph_factory',
+    'aldryn_apphooks_config',
+    'aldryn_boilerplates',
+    'aldryn_categories',
+    'aldryn_common',
+    'aldryn_newsblog',
+    'aldryn_people',
+    'aldryn_reversion',
+    'aldryn_translation_tools',
+    'parler',
+    'sortedm2m',
+    'taggit',
 )
 
 LANGUAGES = (

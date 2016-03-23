@@ -1,0 +1,53 @@
+{% load i18n staticfiles thumbnail cms_tags apphooks_config_tags %}
+
+
+<article class="article
+    {% if article.is_featured %} featured{% endif %}
+    {% if not article.published %} unpublished{% endif %}">
+
+    <!-- Start Post -->
+    <div class="blog-post standard-post">
+        {% if article.featured_image_id and detail_view %}
+            <!-- Post Thumb -->
+            <div class="post-head">
+                <a href="#">
+                    <div class="thumb-overlay"><i class="fa fa-arrows-alt"></i></div>
+                    <img alt="{{ article.featured_image.alt }}"
+                         src="{% thumbnail article.featured_image.image 800x450 crop subject_location=article.featured_image.subject_location %}">
+                </a>
+            </div>
+        {% endif %}
+        <!-- Post Content -->
+        <div class="post-content">
+            <div class="post-type"><i class="fa fa-pencil"></i></div>
+            <h2>
+                {% if not detail_view %}
+                    <a href="{% namespace_url 'article-detail' article.slug namespace=namespace default='' %}">{% render_model article "title" %}</a>
+                {% else %}
+                    {% render_model article "title" %}
+                {% endif %}
+            </h2>
+            <ul class="post-meta">
+                <li>{{ article.publishing_date|date }}</li>
+                {% if article.categories %}
+                    <li>
+                        {% for category in article.categories.all %}
+                            <a href="{% namespace_url 'article-list-by-category' category.slug namespace=namespace default='' %}">{{ category.name }}</a>
+                            {% if not forloop.last %}, {% endif %}
+                        {% endfor %}
+                    </li>
+                {% endif %}
+                {% if article.tags %}
+                    <li>
+                        {% for tag in article.tags.all %}
+                            <a href="{% namespace_url 'article-list-by-tag' tag=tag.slug namespace=namespace default='' %}">{{ tag.name }}</a>{% if not forloop.last %}, {% endif %}
+                        {% endfor %}
+                    </li>
+                {% endif %}
+            </ul>
+            <p> {% render_model article "meta_description" %}</p>
+            <a class="main-button" href="{% namespace_url 'article-detail' article.slug namespace=namespace default='' %}">Читать далее <i class="fa fa-angle-right"></i></a>
+        </div>
+    </div>
+    <!-- End Post -->
+</article>

@@ -167,6 +167,7 @@ INSTALLED_APPS = (
     'telegraph_factory',
     'testimonial',
     'portfolio',
+    "happy_client",
 )
 
 LANGUAGES = (

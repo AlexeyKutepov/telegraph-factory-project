@@ -152,8 +152,6 @@ INSTALLED_APPS = (
     'djangocms_inherit',
     'djangocms_link',
     'reversion',
-    'telegraph_factory',
-    'testimonial',
     'aldryn_apphooks_config',
     'aldryn_boilerplates',
     'aldryn_categories',
@@ -165,6 +163,10 @@ INSTALLED_APPS = (
     'parler',
     'sortedm2m',
     'taggit',
+
+    'telegraph_factory',
+    'testimonial',
+    'portfolio',
 )
 
 LANGUAGES = (

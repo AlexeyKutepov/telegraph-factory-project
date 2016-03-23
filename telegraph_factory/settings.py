@@ -153,6 +153,7 @@ INSTALLED_APPS = (
     'djangocms_link',
     'reversion',
     'telegraph_factory',
+    'testimonial',
     'aldryn_apphooks_config',
     'aldryn_boilerplates',
     'aldryn_categories',

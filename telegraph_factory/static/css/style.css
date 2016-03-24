@@ -5680,3 +5680,10 @@ ul.footer-nav li a:hover {
 .navbar-collapse {
 	max-height: 340px;
 }
+
+/* Telegraph Factory */
+
+.modal-center {
+    position: absolute;
+    top: 30%;
+}

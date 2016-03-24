@@ -16,9 +16,19 @@ def callback(request):
     if request.method == 'POST':
         form = CallbackForm(request.POST)
         if form.is_valid():
+            if 'email' in form.cleaned_data:
+                email = form.cleaned_data['email']
+            else:
+                email = None
+            if 'phone' in form.cleaned_data:
+                phone = form.cleaned_data['phone']
+            else:
+                phone = None
+            if email == "" and phone == "":
+                return JsonResponse({"result": "error"})
             Callback.objects.create(
-                email=form.cleaned_data['email'],
-                phone=form.cleaned_data['phone'],
+                email=email,
+                phone=phone,
                 datetime=timezone.now()
             )
             return JsonResponse({"result": "ok"})
@@ -35,10 +45,20 @@ def order(request):
     if request.method == 'POST':
         form = OrderForm(request.POST)
         if form.is_valid():
+            if 'email' in form.cleaned_data:
+                email = form.cleaned_data['email']
+            else:
+                email = None
+            if 'phone' in form.cleaned_data:
+                phone = form.cleaned_data['phone']
+            else:
+                phone = None
+            if email == "" and phone == "":
+                return JsonResponse({"result": "error"})
             Order.objects.create(
                 name=form.cleaned_data['name'],
-                email=form.cleaned_data['email'],
-                phone=form.cleaned_data['phone'],
+                email=email,
+                phone=phone,
                 datetime=timezone.now(),
                 description=form.cleaned_data['description'],
             )
@@ -56,9 +76,19 @@ def question(request):
     if request.method == 'POST':
         form = QuestionForm(request.POST)
         if form.is_valid():
+            if 'email' in form.cleaned_data:
+                email = form.cleaned_data['email']
+            else:
+                email = None
+            if 'phone' in form.cleaned_data:
+                phone = form.cleaned_data['phone']
+            else:
+                phone = None
+            if email == "" and phone == "":
+                return JsonResponse({"result": "error"})
             Question.objects.create(
-                email=form.cleaned_data['email'],
-                phone=form.cleaned_data['phone'],
+                email=email,
+                phone=phone,
                 datetime=timezone.now(),
                 question=form.cleaned_data['question'],
             )

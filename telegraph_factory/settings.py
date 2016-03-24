@@ -168,6 +168,7 @@ INSTALLED_APPS = (
     'testimonial',
     'portfolio',
     "happy_client",
+    "subscribe",
 )
 
 LANGUAGES = (

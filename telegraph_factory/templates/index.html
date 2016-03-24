@@ -6,7 +6,7 @@
 {% block content %}
 
     <div id="modalAlert" class="modal fade bs-example-modal-lg modal-center" tabindex="-1" role="dialog"
-         aria-labelledby="modalCallback">
+         aria-labelledby="modalAlert">
         <div class="modal-dialog">
             <div class="modal-content">
                 <div class="modal-header">
@@ -18,7 +18,8 @@
                     <h4>Если мы не ответим в течение 10 минут, Вы получите скидку 20%!</h4>
                 </div>
                 <div class="modal-footer">
-                    <button type="button" name="save" data-dismiss="modal" class="btn-system btn-small border-btn">OK</button>
+                    <button type="button" name="save" data-dismiss="modal" class="btn-system btn-small border-btn">OK
+                    </button>
                 </div>
             </div>
         </div>
@@ -42,6 +43,42 @@
                             <input class="form-control" name="phone" type="text" placeholder="+7 (123) 456-78-90">
                             <label><strong>Или ответим по почте: </strong></label>
                             <input class="form-control" name="email" type="email" placeholder="mail@example.com">
+                        </div>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="submit" name="save" class="btn-system btn-small">Отправить</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </form>
+
+    <form id="formQuestion" action="{% url "question" %}" method="post">
+        {% csrf_token %}
+        <div id="modalQuestion" class="modal fade bs-example-modal-lg modal-center" tabindex="-1" role="dialog"
+             aria-labelledby="modalQuestion">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span
+                                aria-hidden="true">&times;</span></button>
+                        <h4 class="modal-title" id="myModalLabel">Выберите удобный способ связи:</h4>
+                    </div>
+                    <div class="modal-body">
+                        <div class="row">
+                            <div class="col-lg-12">
+                                <div class="form-group">
+                                    <label><strong>Мы перезвоним Вам: </strong></label>
+                                    <input class="form-control" name="phone" type="text"
+                                           placeholder="+7 (123) 456-78-90">
+                                    <label><strong>Или ответим по почте: </strong></label>
+                                    <input class="form-control" name="email" type="email"
+                                           placeholder="mail@example.com">
+                                    <strong>Задайте вопрос: </strong>
+                                    <textarea rows="5" style="width:100%;" class="form-control"
+                                              name="question"></textarea>
+                                </div>
+                            </div>
                         </div>
                     </div>
                     <div class="modal-footer">
@@ -311,7 +348,8 @@
                 <!-- Start Buttons -->
                 <a href="#" class="btn-system btn-large" data-toggle="modal" data-target="#modalCallback"><i
                         class="fa fa-phone"></i> Заказать звонок</a>
-                <a href="#" class="btn-system btn-large btn-wite"><i class="fa fa-comments-o"></i> Задать вопрос</a>
+                <a href="#" class="btn-system btn-large btn-wite" data-toggle="modal" data-target="#modalQuestion"><i
+                        class="fa fa-comments-o"></i> Задать вопрос</a>
             </div>
             <!-- End Section Content -->
 

@@ -13,11 +13,11 @@ class QuestionForm(forms.Form):
     # name = forms.TextInput(required=False)
     email = forms.EmailField(required=False)
     phone = forms.CharField(required=False)
-    question = forms.Textarea()
+    question = forms.CharField()
 
 
 class OrderForm(forms.Form):
     name = forms.CharField(required=False)
     email = forms.EmailField(required=False)
     phone = forms.CharField(required=False)
-    description = forms.Textarea()
+    description = forms.CharField()

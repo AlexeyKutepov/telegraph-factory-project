@@ -86,11 +86,15 @@ def question(request):
                 phone = None
             if email == "" and phone == "":
                 return JsonResponse({"result": "error"})
+            if 'question' in form.cleaned_data:
+                question = form.cleaned_data['question']
+            else:
+                phone = None
             Question.objects.create(
                 email=email,
                 phone=phone,
                 datetime=timezone.now(),
-                question=form.cleaned_data['question'],
+                question=question,
             )
             return JsonResponse({"result": "ok"})
         else:

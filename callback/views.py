@@ -56,11 +56,9 @@ def order(request):
             if email == "" and phone == "":
                 return JsonResponse({"result": "error"})
             Order.objects.create(
-                name=form.cleaned_data['name'],
                 email=email,
                 phone=phone,
                 datetime=timezone.now(),
-                description=form.cleaned_data['description'],
             )
             return JsonResponse({"result": "ok"})
         else:

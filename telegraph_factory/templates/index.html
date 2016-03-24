@@ -15,7 +15,7 @@
                     <h4 class="modal-title" id="myModalLabel">Спасибо за обращение в нашу компанию!</h4>
                 </div>
                 <div class="modal-body center-block">
-                    <h4>Если мы не ответим в течение 10 минут, Вы получите скидку 20%!</h4>
+                    <h4 id="alertText"></h4>
                 </div>
                 <div class="modal-footer">
                     <button type="button" name="save" data-dismiss="modal" class="btn-system btn-small border-btn">OK
@@ -89,6 +89,40 @@
         </div>
     </form>
 
+    <form id="formOrder" action="{% url "order" %}" method="post">
+        {% csrf_token %}
+        <div id="modalOrder" class="modal fade bs-example-modal-lg modal-center" tabindex="-1" role="dialog"
+             aria-labelledby="modalOrder">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span
+                                aria-hidden="true">&times;</span></button>
+                        <h4 class="modal-title" id="myModalLabel">Заявка на разработку</h4>
+                    </div>
+                    <div class="modal-body">
+                        <div class="row">
+                            <div class="col-lg-12">
+                                <div class="form-group">
+                                    <h5>Выберите удобный способ связи:</h5>
+                                    <label><strong>Мы перезвоним Вам: </strong></label>
+                                    <input class="form-control" name="phone" type="text"
+                                           placeholder="+7 (123) 456-78-90">
+                                    <label><strong>Или ответим по почте: </strong></label>
+                                    <input class="form-control" name="email" type="email"
+                                           placeholder="mail@example.com">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="submit" name="save" class="btn-system btn-small">Отправить</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </form>
+
 
     <!-- Start Home Page Slider -->
     <section id="home">
@@ -119,7 +153,8 @@
                             </h3>
 
                             <p class="animated4"><a href="#"
-                                                    class="slider btn btn-system btn-large">Заказать сайт</a>
+                                                    class="slider btn btn-system btn-large" data-toggle="modal"
+                                                    data-target="#modalOrder">Заказать сайт</a>
                             </p>
                         </div>
                     </div>
@@ -162,7 +197,8 @@
 
                             <div class="animated4">
                                 <a class="slider btn btn-system btn-large btn-min-block"
-                                   href="#">Заказать сайт</a>
+                                   href="#" data-toggle="modal"
+                                                    data-target="#modalOrder">Заказать сайт</a>
                                 <a class="slider btn btn-default btn-min-block"
                                    href="#" data-toggle="modal" data-target="#modalCallback">Получить консультацию</a>
                             </div>

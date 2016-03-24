@@ -241,3 +241,13 @@ THUMBNAIL_PROCESSORS = (
     'filer.thumbnail_processors.scale_and_crop_with_subject_location',
     'easy_thumbnails.processors.filters'
 )
+
+# E-mail
+EMAIL_HOST = 'smtp.yandex.ru'
+EMAIL_HOST_USER = 'test.kutepov@yandex.ru'
+EMAIL_HOST_PASSWORD = 'kutepov'
+EMAIL_PORT = 587
+EMAIL_USE_TLS = True
+
+EMAIL_ADDRESS = 'alkutepov@list.ru'
+

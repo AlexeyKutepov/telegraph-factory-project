@@ -1,3 +1,4 @@
+from django.core.mail import send_mail
 from django.http import JsonResponse
 from django.shortcuts import render
 from django.utils import timezone
@@ -5,6 +6,7 @@ from forms import CallbackForm, QuestionForm, OrderForm
 from models import Callback, Question, Order
 
 # Create your views here.
+from telegraph_factory import settings
 
 
 def callback(request):
@@ -31,6 +33,16 @@ def callback(request):
                 phone=phone,
                 datetime=timezone.now()
             )
+            try:
+                send_mail(
+                    "New request",
+                    'Phone: ' + phone + '\n \nEmail: ' + email,
+                    getattr(settings, "EMAIL_HOST_USER", None),
+                    [settings.EMAIL_ADDRESS, ],
+                    fail_silently=False,
+                )
+            except:
+                pass
             return JsonResponse({"result": "ok"})
         else:
             return JsonResponse({"result": "error"})
@@ -60,6 +72,16 @@ def order(request):
                 phone=phone,
                 datetime=timezone.now(),
             )
+            try:
+                send_mail(
+                    "New order",
+                    'Phone: ' + phone + '\n \nEmail: ' + email,
+                    getattr(settings, "EMAIL_HOST_USER", None),
+                    [settings.EMAIL_ADDRESS, ],
+                    fail_silently=False,
+                )
+            except:
+                pass
             return JsonResponse({"result": "ok"})
         else:
             return JsonResponse({"result": "error"})
@@ -87,13 +109,23 @@ def question(request):
             if 'question' in form.cleaned_data:
                 question = form.cleaned_data['question']
             else:
-                phone = None
+                question = None
             Question.objects.create(
                 email=email,
                 phone=phone,
                 datetime=timezone.now(),
                 question=question,
             )
+            try:
+                send_mail(
+                    "New question",
+                    'Phone: ' + phone + '\n \nEmail: ' + email,
+                    getattr(settings, "EMAIL_HOST_USER", None),
+                    [settings.EMAIL_ADDRESS, ],
+                    fail_silently=False,
+                )
+            except:
+                pass
             return JsonResponse({"result": "ok"})
         else:
             return JsonResponse({"result": "error"})

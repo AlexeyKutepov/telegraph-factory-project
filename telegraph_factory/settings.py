@@ -169,6 +169,7 @@ INSTALLED_APPS = (
     'portfolio',
     "happy_client",
     "subscribe",
+    "callback",
 )
 
 LANGUAGES = (

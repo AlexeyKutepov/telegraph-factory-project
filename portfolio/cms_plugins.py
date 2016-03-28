@@ -7,7 +7,7 @@ from django.utils.translation import ugettext_lazy as _
 class PortfolioPlugin(CMSPluginBase):
     model = Portfolio
     name = _("Portfolio Plugin")
-    render_template = "portfolio.html"
+    render_template = "portfolio_item.html"
     cache = False
 
     def render(self, context, instance, placeholder):

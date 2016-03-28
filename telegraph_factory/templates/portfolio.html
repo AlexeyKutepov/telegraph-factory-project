@@ -1,0 +1,42 @@
+{% extends "base.html" %}
+{% load cms_tags %}
+
+{% block title %}{% page_attribute "page_title" %}{% endblock title %}
+
+{% block content %}
+     <!-- Start Page Banner -->
+    <div class="page-banner">
+      <div class="container">
+        <div class="row">
+          <div class="col-md-6">
+            <h2>Портфолио</h2>
+            <p>веб-студии Телеграфный Завод</p>
+          </div>
+          <div class="col-md-6">
+            <ul class="breadcrumbs">
+              <li><a href="/">Главная</a></li>
+              <li>Портфолио</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- End Page Banner -->
+
+
+    <!-- Start Content -->
+    <div id="content">
+      <div class="container">
+        <div class="portfolio-page portfolio-2column">
+
+          <ul id="portfolio-list" data-animated="fadeIn">
+            {% placeholder "portfolio" %}
+          </ul>
+        </div>
+        <!-- End Portfolio Items -->
+
+      </div>
+    </div>
+    <!-- End Content -->
+
+{% endblock content %}

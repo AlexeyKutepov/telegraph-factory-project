@@ -210,6 +210,7 @@ CMS_TEMPLATES = (
     ('feature.html', 'Page with Feature'),
     ('blog.html', 'Blog'),
     ('contact.html', 'Contacts'),
+    ('portfolio.html', 'Portfolio'),
 )
 
 CMS_PERMISSION = True

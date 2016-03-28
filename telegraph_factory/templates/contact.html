@@ -1,0 +1,108 @@
+{% extends "base.html" %}
+{% load cms_tags %}
+
+{% block title %}{% page_attribute "page_title" %}{% endblock title %}
+
+{% block content %}
+    <div id="modalAlert" class="modal fade bs-example-modal-lg modal-center" tabindex="-1" role="dialog"
+         aria-labelledby="modalAlert">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span
+                            aria-hidden="true">&times;</span></button>
+                    <h4 class="modal-title" id="myModalLabel">Спасибо за обращение в нашу компанию!</h4>
+                </div>
+                <div class="modal-body center-block">
+                    <h4 id="alertText"></h4>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" name="save" data-dismiss="modal" class="btn-system btn-small border-btn">OK
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+    <!-- Start Map -->
+    <script type="text/javascript" charset="utf-8"
+                            src="https://api-maps.yandex.ru/services/constructor/1.0/js/?sid=D4j59BUBfnCojzsvrvtl0WeRv3SSQ4F4&width=100%&height=320&lang=ru_RU&sourceType=constructor"></script>
+
+
+    <!-- Start Content -->
+    <div id="content">
+      <div class="container">
+
+        <div class="row">
+
+          <div class="col-md-8">
+
+            <!-- Classic Heading -->
+            <h4 class="classic-title"><span>Обратная связь</span></h4>
+
+            <!-- Start Contact Form -->
+            <form role="form" class="contact-form" id="contact-form" action="{% url "question" %}" method="post">
+                {% csrf_token %}
+              <div class="form-group">
+                <div class="controls">
+                  <input type="text" placeholder="Имя" name="name" required>
+                </div>
+              </div>
+              <div class="form-group">
+                <div class="controls">
+                  <input type="email" class="email" placeholder="Email" name="email" required>
+                </div>
+              </div>
+
+              <div class="form-group">
+
+                <div class="controls">
+                  <textarea rows="7" placeholder="Сообщение" name="question"></textarea>
+                </div>
+              </div>
+              <button type="submit" id="submit" class="btn-system btn-large">Отправить</button>
+              <div id="success" style="color:#34495e;"></div>
+            </form>
+            <!-- End Contact Form -->
+
+          </div>
+
+          <div class="col-md-4">
+
+            <!-- Classic Heading -->
+            <h4 class="classic-title"><span>Информация</span></h4>
+
+            <!-- Some Info -->
+            <p>Веб-студия "Телеграфный Завод"</p>
+
+            <!-- Divider -->
+            <div class="hr1" style="margin-bottom:10px;"></div>
+
+            <!-- Info - Icons List -->
+            <ul class="icons-list">
+              <li><i class="fa fa-globe">  </i> <strong>Адрес:</strong>{% static_placeholder "address" %}</li>
+              <li><i class="fa fa-envelope-o"></i> <strong>Email:</strong>{% static_placeholder "email" %}</li>
+              <li><i class="fa fa-mobile"></i> <strong>Телефон:</strong>{% static_placeholder "phone" %}</li>
+              <li><i class="fa fa-skype"></i> <strong>Skype:</strong> {% static_placeholder "skype" %}</li>
+            </ul>
+
+            <!-- Divider -->
+            <div class="hr1" style="margin-bottom:15px;"></div>
+
+            <!-- Classic Heading -->
+            <h4 class="classic-title"><span>Время работы</span></h4>
+
+            <!-- Info - List -->
+            <ul class="list-unstyled">
+              <li><strong>Понедельник - Пятница</strong> - с 9:00 до 18:00</li>
+              <li><strong>Суббота, Воскресение</strong> - выходной</li>
+            </ul>
+
+          </div>
+
+        </div>
+
+      </div>
+    </div>
+{% endblock content %}

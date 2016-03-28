@@ -57,6 +57,10 @@ def order(request):
     if request.method == 'POST':
         form = OrderForm(request.POST)
         if form.is_valid():
+            if 'name' in form.cleaned_data:
+                name = form.cleaned_data['name']
+            else:
+                name = None
             if 'email' in form.cleaned_data:
                 email = form.cleaned_data['email']
             else:
@@ -68,6 +72,7 @@ def order(request):
             if email == "" and phone == "":
                 return JsonResponse({"result": "error"})
             Order.objects.create(
+                name=name,
                 email=email,
                 phone=phone,
                 datetime=timezone.now(),
@@ -96,6 +101,10 @@ def question(request):
     if request.method == 'POST':
         form = QuestionForm(request.POST)
         if form.is_valid():
+            if 'name' in form.cleaned_data:
+                name = form.cleaned_data['name']
+            else:
+                name = None
             if 'email' in form.cleaned_data:
                 email = form.cleaned_data['email']
             else:
@@ -111,6 +120,7 @@ def question(request):
             else:
                 question = None
             Question.objects.create(
+                name=name,
                 email=email,
                 phone=phone,
                 datetime=timezone.now(),

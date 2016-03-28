@@ -577,7 +577,26 @@ $(document).ready(function ($) {
             success: function (data) {
                     $('#modalOrder').modal('hide');
                 if (data.result == "ok") {
-                    $('#alertText').html('Заявка на разработку отправлена! \n Если мы не свяжемся с Вами в течение 10 минут, Вы получите скидку 20%!');
+                    $('#alertText').html('Заявка на разработку отправлена! \n Если мы не свяжемся с Вами в течение 10 минут, Вы получите скидку 10%!');
+                    $('#modalAlert').modal();
+                }
+            },
+            error: function (xhr, textStatus, errorThrown) {
+                console.log("Error: " + errorThrown + xhr.status + xhr.responseText);
+            }
+        });
+
+        e.preventDefault();
+    });
+
+    $('#contact-form').submit(function(e){
+        $.ajax({
+            type: "POST",
+            url: $(this).attr("action"),
+            data: $(this).serialize(),
+            success: function (data) {
+                if (data.result == "ok") {
+                    $('#alertText').html('Если мы не ответим в течение 10 минут, Вы получите скидку 10%!');
                     $('#modalAlert').modal();
                 }
             },

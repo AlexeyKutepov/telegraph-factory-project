@@ -7,7 +7,7 @@ from django.utils.translation import ugettext_lazy as _
 class TestimonialPlugin(CMSPluginBase):
     model = Testimonial
     name = _("Testimonial Plugin")
-    render_template = "testimonial.html"
+    render_template = "testimonial_item.html"
     cache = False
 
     def render(self, context, instance, placeholder):
@@ -15,3 +15,16 @@ class TestimonialPlugin(CMSPluginBase):
         return context
 
 plugin_pool.register_plugin(TestimonialPlugin)
+
+
+class TestimonialWithPhotoPlugin(CMSPluginBase):
+    model = Testimonial
+    name = _("Testimonial With Photo Plugin")
+    render_template = "testimonial_with_photo_item.html"
+    cache = False
+
+    def render(self, context, instance, placeholder):
+        context = super(TestimonialWithPhotoPlugin, self).render(context, instance, placeholder)
+        return context
+
+plugin_pool.register_plugin(TestimonialWithPhotoPlugin)

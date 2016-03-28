@@ -1,0 +1,35 @@
+{% extends "base.html" %}
+{% load cms_tags %}
+
+{% block title %}{% page_attribute "page_title" %}{% endblock title %}
+
+{% block content %}
+    <!-- Start Page Banner -->
+    <div class="page-banner no-subtitle">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-6">
+                    <h2>Отзывы</h2>
+                </div>
+                <div class="col-md-6">
+                    <ul class="breadcrumbs">
+                        <li><a href="/">Главная</a></li>
+                        <li>Отзывы</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- End Page Banner -->
+
+
+    <!-- Start Content -->
+    <div id="content">
+        <div class="container">
+            {% placeholder testimonials %}
+        </div>
+    </div>
+    <!-- End Content -->
+{% endblock content %}
+
+

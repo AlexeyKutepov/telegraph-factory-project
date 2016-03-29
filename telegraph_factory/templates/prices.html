@@ -1,0 +1,278 @@
+{% extends "base.html" %}
+{% load cms_tags %}
+
+{% block title %}{% page_attribute "page_title" %}{% endblock title %}
+
+{% block content %}
+
+    <div id="modalAlert" class="modal fade bs-example-modal-lg modal-center" tabindex="-1" role="dialog"
+         aria-labelledby="modalAlert">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span
+                            aria-hidden="true">&times;</span></button>
+                    <h4 class="modal-title" id="myModalLabel">Спасибо за обращение в нашу компанию!</h4>
+                </div>
+                <div class="modal-body center-block">
+                    <h4 id="alertText"></h4>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" name="save" data-dismiss="modal" class="btn-system btn-small border-btn">OK
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+    <form id="formCallback" action="{% url "callback" %}" method="post">
+        {% csrf_token %}
+        <div id="modalCallback" class="modal fade bs-example-modal-lg modal-center" tabindex="-1" role="dialog"
+             aria-labelledby="modalCallback">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span
+                                aria-hidden="true">&times;</span></button>
+                        <h4 class="modal-title" id="myModalLabel">Мы Вам перезвоним!</h4>
+                    </div>
+                    <div class="modal-body">
+                        <div class="form-group">
+                            <label><strong>Введите Ваш номер телефона: </strong></label>
+                            <input class="form-control" name="phone" type="text" placeholder="+7 (123) 456-78-90">
+{#                            <label><strong>Или ответим по почте: </strong></label>#}
+{#                            <input class="form-control" name="email" type="email" placeholder="mail@example.com">#}
+                        </div>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="submit" name="save" class="btn-system btn-small">Отправить</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </form>
+
+    <form id="formQuestion" action="{% url "question" %}" method="post">
+        {% csrf_token %}
+        <div id="modalQuestion" class="modal fade bs-example-modal-lg modal-center" tabindex="-1" role="dialog"
+             aria-labelledby="modalQuestion">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span
+                                aria-hidden="true">&times;</span></button>
+                        <h4 class="modal-title" id="myModalLabel">Выберите удобный способ связи:</h4>
+                    </div>
+                    <div class="modal-body">
+                        <div class="row">
+                            <div class="col-lg-12">
+                                <div class="form-group">
+                                    <label><strong>Мы перезвоним Вам: </strong></label>
+                                    <input class="form-control" name="phone" type="text"
+                                           placeholder="+7 (123) 456-78-90">
+                                    <label><strong>Или ответим по почте: </strong></label>
+                                    <input class="form-control" name="email" type="email"
+                                           placeholder="mail@example.com">
+                                    <strong>Задайте вопрос: </strong>
+                                    <textarea rows="5" style="width:100%;" class="form-control"
+                                              name="question"></textarea>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="submit" name="save" class="btn-system btn-small">Отправить</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </form>
+
+    <!-- Start Page Banner -->
+    <div class="page-banner no-subtitle">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-6">
+                    <h2>Услуги</h2>
+                </div>
+                <div class="col-md-6">
+                    <ul class="breadcrumbs">
+                        <li><a href="/">Главная</a></li>
+                        <li>Услуги</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- End Page Banner -->
+
+
+    <!-- Start Pricing Table Section -->
+    <div class="pricing-section" style="padding-top:60px; padding-bottom:60px;">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-12">
+                    <!-- Start Big Heading -->
+                    <div class="big-title text-center">
+                        <h1>Цены на разработку</h1>
+                    </div>
+                    <!-- End Big Heading -->
+
+                    <!-- Text -->
+                    <p class="text-center" style="margin-bottom:20px;">Ниже представлены цены на разработку сайтов и
+                        веб-приложений с нуля.</p>
+                </div>
+            </div>
+
+            <div class="row pricing-tables">
+
+                <div class="col-md-3 col-sm-3 col-xs-12">
+                    <div class="pricing-table">
+                        <div class="plan-name">
+                            <h3>BASIC</h3>
+                        </div>
+                        <div class="plan-price">
+                            <div class="price-value"><span>от </span>{% placeholder "basic_price" %}&#8381;</div>
+                            <div class="interval">в тариф входит:</div>
+                        </div>
+                        <div class="plan-list">
+                            <ul>
+                                <li><strong>Сайт-визитка или Landing page</strong></li>
+                                <li>Кастомизированный дизайн</li>
+                                <li>Домен в зоне <strong>.ru</strong> или <strong>.рф</strong></li>
+                                <li>Бесплатный хостинг <strong>6 месяцев</strong></li>
+                                <li>Регистрация в поисковых системах</li>
+                            </ul>
+                        </div>
+                        <div class="plan-signup">
+                            <a href="{% placeholder "basic_link" %}" class="btn-system btn-small">Подробнее</a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-md-3 col-sm-3 col-xs-12">
+                    <div class="pricing-table">
+                        <div class="plan-name">
+                            <h3>ADVANCED</h3>
+                        </div>
+                        <div class="plan-price">
+                            <div class="price-value"><span>от </span>{% placeholder "advanced_price" %}&#8381;</div>
+                            <div class="interval">в тариф входит:</div>
+                        </div>
+                        <div class="plan-list">
+                            <ul>
+                                <li><strong>Интернет-магазин</strong></li>
+                                <li>Кастомизированный дизайн</li>
+                                <li>Настройка интернет-магазина</li>
+                                <li>Домен в зоне <strong>.ru</strong> или <strong>.рф</strong></li>
+                                <li>Бесплатный хостинг <strong>6 месяцев</strong></li>
+                            </ul>
+                        </div>
+                        <div class="plan-signup">
+                            <a href="{% placeholder "advanced_link" %}" class="btn-system btn-small">Подробнее</a>
+                        </div>
+                    </div>
+                </div>
+
+
+                <div class="col-md-3 col-sm-3 col-xs-12">
+                    <div class="pricing-table highlight-plan">
+                        <div class="plan-name">
+                            <h3>PROFESSIONAL</h3>
+                        </div>
+                        <div class="plan-price">
+                            <div class="price-value"><span>от </span>{% placeholder "professional_price" %}&#8381;</div>
+                            <div class="interval">в тариф входит:</div>
+                        </div>
+                        <div class="plan-list">
+                            <ul>
+                                <li><strong>Портал</strong></li>
+                                <li><strong>Уникальный</strong> дизайн</li>
+                                <li>Функционал <strong>любой</strong> сложности</li>
+                                <li>Домен в <strong>любой</strong> зоне</li>
+                                <li>Бесплатный хостинг <strong>6 месяцев</strong></li>
+                            </ul>
+                        </div>
+                        <div class="plan-signup">
+                            <a href="{% placeholder "professional_link" %}" class="btn-system btn-small border-btn">Подробнее</a>
+                        </div>
+                    </div>
+                </div>
+
+
+                <div class="col-md-3 col-sm-3 col-xs-12">
+                    <div class="pricing-table">
+                        <div class="plan-name">
+                            <h3>EXTREME</h3>
+                        </div>
+                        <div class="plan-price">
+                            <div class="price-value"><span>от </span>{% placeholder "extreme_price" %}&#8381;</div>
+                            <div class="interval">в тариф входит:</div>
+                        </div>
+                        <div class="plan-list">
+                            <ul>
+                                <li><strong>Веб-приложение</strong></li>
+                                <li>Разработка функционала и интерфейса</li>
+                                <li>Покрытие кода <strong>тестами</strong></li>
+                                <li>Внедрение в Вашей компании</li>
+                                <li><strong>1-й год</strong> поддержки</li>
+                            </ul>
+                        </div>
+                        <div class="plan-signup">
+                            <a href="{% placeholder "extreme_link" %}" class="btn-system btn-small">Подробнее</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- Divider -->
+            <div class="hr1" style="margin-bottom:40px;"></div>
+            <div class="row">
+                <div class="col-md-12">
+                    <!-- Start Call Action -->
+                    <div class="call-action call-action-boxed call-action-style1 no-descripton clearfix">
+                        <!-- Call Action Button -->
+                        <div class="button-side"><a href="#" class="btn-system border-btn btn-medium">Подробнее</a>
+                        </div>
+                        <!-- Call Action Text -->
+                        <h2 class="primary"><strong>Доработка</strong> функционала Вашего сайта.</h2>
+                    </div>
+                    <!-- End Call Action -->
+
+                    <!-- Divider -->
+                    <div class="hr1" style="margin-bottom:40px;"></div>
+
+                    <!-- Start Call Action -->
+                    <div class="call-action call-action-boxed call-action-style1 no-descripton clearfix">
+                        <!-- Call Action Button -->
+                        <div class="button-side"><a href="#" class="btn-system border-btn btn-medium">Подробнее</a>
+                        </div>
+                        <!-- Call Action Text -->
+                        <h2 class="primary"><strong>Продвижение</strong> Вашего сайта.</h2>
+                    </div>
+                    <!-- End Call Action -->
+
+                    <!-- Divider -->
+                    <div class="hr1" style="margin-bottom:40px;"></div>
+
+                    <!-- Start Call Action -->
+                    <div class="call-action call-action-boxed call-action-style3 no-descripton clearfix">
+                        <!-- Call Action Button -->
+                        <div class="button-side">
+                            <a href="#" class="btn-system border-btn btn-medium btn-wite" data-toggle="modal" data-target="#modalCallback">
+                                <i class="fa fa-phone"></i> Заказать звонок</a>
+                            <a href="#" class="btn-system border-btn btn-medium" data-toggle="modal" data-target="#modalQuestion">
+                                <i class="fa fa-comments-o"></i> Задать вопрос</a></div>
+                        <!-- Call Action Text -->
+                        <h2 class="primary"><strong>Нужна консультация?</strong></h2>
+
+                    </div>
+                    <!-- End Call Action -->
+
+
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- End Pricing Table Section -->
+{% endblock content %}

@@ -212,6 +212,7 @@ CMS_TEMPLATES = (
     ('contact.html', 'Contacts'),
     ('portfolio.html', 'Portfolio'),
     ('testimonials.html', 'Testimonials'),
+    ('prices.html', 'Prices'),
 )
 
 CMS_PERMISSION = True

@@ -206,7 +206,7 @@ input[type="submit"] {
 }
 
 #content {
-	padding: 60px 0;
+	padding: 20px 0;
 }
 
 #content.full-sections {
@@ -2045,7 +2045,7 @@ ul.icons-list li i {
 
 .section {
     padding-top: 80px;
-    padding-bottom: 80px;
+    padding-bottom: 40px;
 }
 
 .service {

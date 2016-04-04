@@ -7,7 +7,7 @@
 <head>
     <!-- Basic -->
     <title>{% block title %}Телеграфный завод - веб-студия №1{% endblock title %}</title>
-    <link rel="shortcut icon" type="image/png" href="{{STATIC_URL}}images/logo/favicon.png"/>
+    <link rel="shortcut icon" type="image/png" href="{{ STATIC_URL }}images/logo/favicon.png"/>
 
     <!-- Define Charset -->
     <meta charset="utf-8">
@@ -15,7 +15,7 @@
     <!-- Responsive Metatag -->
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
     <meta name='yandex-verification' content='66448928fcfe1a16'/>
-    <meta name="google-site-verification" content="oKdBMzLpUZzGWJEnywI46Nbdvt4EZhztdnep78w2dfo" />
+    <meta name="google-site-verification" content="oKdBMzLpUZzGWJEnywI46Nbdvt4EZhztdnep78w2dfo"/>
 
     <!-- Page Description and Author -->
     <meta name="description" content="Веб-студия Телеграфный Завод">
@@ -120,6 +120,24 @@
             <div><img src="https://mc.yandex.ru/watch/36330670" style="position:absolute; left:-9999px;" alt=""/></div>
         </noscript>
         <!-- /Yandex.Metrika counter -->
+
+        <script>
+            (function (i, s, o, g, r, a, m) {
+                i['GoogleAnalyticsObject'] = r;
+                i[r] = i[r] || function () {
+                    (i[r].q = i[r].q || []).push(arguments)
+                }, i[r].l = 1 * new Date();
+                a = s.createElement(o),
+                        m = s.getElementsByTagName(o)[0];
+                a.async = 1;
+                a.src = g;
+                m.parentNode.insertBefore(a, m)
+            })(window, document, 'script', '//www.google-analytics.com/analytics.js', 'ga');
+
+            ga('create', 'UA-56547582-5', 'auto');
+            ga('send', 'pageview');
+
+        </script>
     {% endaddtoblock %}
 
 </head>
@@ -155,37 +173,43 @@
                     <!-- Start Social Links -->
                     <ul class="social-list">
                         <li>
-                            <a class="facebook itl-tooltip" data-placement="bottom" title="Facebook" href="https://www.facebook.com/telegraphfactory/"><i
+                            <a class="facebook itl-tooltip" data-placement="bottom" title="Facebook"
+                               href="https://www.facebook.com/telegraphfactory/"><i
                                     class="fa fa-facebook"></i></a>
                         </li>
                         <li>
-                            <a class="twitter itl-tooltip" data-placement="bottom" title="Twitter" href="https://twitter.com/alkutepov"><i
+                            <a class="twitter itl-tooltip" data-placement="bottom" title="Twitter"
+                               href="https://twitter.com/alkutepov"><i
                                     class="fa fa-twitter"></i></a>
                         </li>
                         <li>
-                            <a class="google itl-tooltip" data-placement="bottom" title="Google Plus" href="https://plus.google.com/communities/114173448933633674106"><i
+                            <a class="google itl-tooltip" data-placement="bottom" title="Google Plus"
+                               href="https://plus.google.com/communities/114173448933633674106"><i
                                     class="fa fa-google-plus"></i></a>
                         </li>
                         <li>
-                            <a class="vk itl-tooltip" data-placement="bottom" title="VK" href="http://vk.com/telegraphfactory"><i
+                            <a class="vk itl-tooltip" data-placement="bottom" title="VK"
+                               href="http://vk.com/telegraphfactory"><i
                                     class="fa fa-vk"></i></a>
                         </li>
                         <li>
-                            <a class="odnoklassniki itl-tooltip" data-placement="bottom" title="Оdnoklassniki" href="http://ok.ru/group/53989119754482"><i
+                            <a class="odnoklassniki itl-tooltip" data-placement="bottom" title="Оdnoklassniki"
+                               href="http://ok.ru/group/53989119754482"><i
                                     class="fa fa-odnoklassniki"></i></a>
                         </li>
                         <li>
-                            <a class="linkdin itl-tooltip" data-placement="bottom" title="Linkedin" href="https://www.linkedin.com/groups/8512280"><i
+                            <a class="linkdin itl-tooltip" data-placement="bottom" title="Linkedin"
+                               href="https://www.linkedin.com/groups/8512280"><i
                                     class="fa fa-linkedin"></i></a>
                         </li>
-{#                        <li>#}
-{#                            <a class="skype itl-tooltip" data-placement="bottom" title="Skype" href="#"><i#}
-{#                                    class="fa fa-skype"></i></a>#}
-{#                        </li>#}
-{#                        <li>#}
-{#                            <a class="github itl-tooltip" data-placement="bottom" title="GitHub" href="#"><i#}
-{#                                    class="fa fa-github"></i></a>#}
-{#                        </li>#}
+                        {#                        <li>#}
+                        {#                            <a class="skype itl-tooltip" data-placement="bottom" title="Skype" href="#"><i#}
+                        {#                                    class="fa fa-skype"></i></a>#}
+                        {#                        </li>#}
+                        {#                        <li>#}
+                        {#                            <a class="github itl-tooltip" data-placement="bottom" title="GitHub" href="#"><i#}
+                        {#                                    class="fa fa-github"></i></a>#}
+                        {#                        </li>#}
                     </ul>
                     <!-- End Social Links -->
                 </div>
@@ -213,15 +237,15 @@
             </div>
             <div class="navbar-collapse collapse">
                 <!-- Stat Search -->
-{#                <div class="search-side">#}
-{#                    <a class="show-search"><i class="fa fa-search"></i></a>#}
-{##}
-{#                    <div class="search-form">#}
-{#                        <form autocomplete="off" role="search" method="get" class="searchform" action="#">#}
-{#                            <input type="text" value="" name="s" id="s" placeholder="Поиск по сайту...">#}
-{#                        </form>#}
-{#                    </div>#}
-{#                </div>#}
+                {#                <div class="search-side">#}
+                {#                    <a class="show-search"><i class="fa fa-search"></i></a>#}
+                {##}
+                {#                    <div class="search-form">#}
+                {#                        <form autocomplete="off" role="search" method="get" class="searchform" action="#">#}
+                {#                            <input type="text" value="" name="s" id="s" placeholder="Поиск по сайту...">#}
+                {#                        </form>#}
+                {#                    </div>#}
+                {#                </div>#}
                 <!-- End Search -->
                 <!-- Start Navigation List -->
                 <ul class="nav navbar-nav navbar-right">
@@ -271,29 +295,35 @@
                     <h4>Мы в соцсетях<span class="head-line"></span></h4>
                     <ul class="social-icons">
                         <li>
-                            <a class="facebook" title="Facebook" href="https://www.facebook.com/telegraphfactory/"><i class="fa fa-facebook"></i></a>
+                            <a class="facebook" title="Facebook" href="https://www.facebook.com/telegraphfactory/"><i
+                                    class="fa fa-facebook"></i></a>
                         </li>
                         <li>
-                            <a class="twitter" title="Twitter" href="https://twitter.com/alkutepov"><i class="fa fa-twitter"></i></a>
+                            <a class="twitter" title="Twitter" href="https://twitter.com/alkutepov"><i
+                                    class="fa fa-twitter"></i></a>
                         </li>
                         <li>
-                            <a class="google" title="Google Plus" href="https://plus.google.com/communities/114173448933633674106"><i class="fa fa-google-plus"></i></a>
+                            <a class="google" title="Google Plus"
+                               href="https://plus.google.com/communities/114173448933633674106"><i
+                                    class="fa fa-google-plus"></i></a>
                         </li>
                         <li>
                             <a class="vk" title="VK" href="http://vk.com/telegraphfactory"><i class="fa fa-vk"></i></a>
                         </li>
                         <li>
-                            <a class="odnoklassniki" title="Оdnoklassniki" href="http://ok.ru/group/53989119754482"><i class="fa fa-odnoklassniki"></i></a>
+                            <a class="odnoklassniki" title="Оdnoklassniki" href="http://ok.ru/group/53989119754482"><i
+                                    class="fa fa-odnoklassniki"></i></a>
                         </li>
                         <li>
-                            <a class="linkdin" title="Linkedin" href="https://www.linkedin.com/groups/8512280"><i class="fa fa-linkedin"></i></a>
+                            <a class="linkdin" title="Linkedin" href="https://www.linkedin.com/groups/8512280"><i
+                                    class="fa fa-linkedin"></i></a>
                         </li>
-{#                        <li>#}
-{#                            <a class="skype" title="Skype" href="#"><i class="fa fa-skype"></i></a>#}
-{#                        </li>#}
-{#                        <li>#}
-{#                            <a class="github" title="GitHub" href="#"><i class="fa fa-github"></i></a>#}
-{#                        </li>#}
+                        {#                        <li>#}
+                        {#                            <a class="skype" title="Skype" href="#"><i class="fa fa-skype"></i></a>#}
+                        {#                        </li>#}
+                        {#                        <li>#}
+                        {#                            <a class="github" title="GitHub" href="#"><i class="fa fa-github"></i></a>#}
+                        {#                        </li>#}
                     </ul>
                 </div>
             </div>
